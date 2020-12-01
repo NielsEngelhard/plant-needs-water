@@ -1,6 +1,7 @@
 /*
  * HARDWARE
  * Water pump is connected via a low level trigger to the arduino.
+ * I used a Micro Submersible Motor Water Pump (3-6V), which needed to be connected to a external power source.
  *
  * low level trigger (left) to arduino (right):
  * VCC -> 5V
