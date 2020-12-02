@@ -17,18 +17,15 @@ int getMoistSensorValue() {
    sensor_pin_read = analogRead(sensor_pin);
    mapped_sensor_pin_read = map(sensor_pin_read,550,0,0,100);
 
-   return mapped_sensor_pin_read;
-}
-
-void printMoistureValue() {
-  int value = getMoistSensorValue();
-  Serial.print("Mositure : ");
-  Serial.print(value);
-  Serial.print("%");
+   // for a more accurate measurement/mapping, +1 is added.
+   // (55 will be mapped to 5, instead of 4 etc.
+   if (mapped_sensor_pin_read >= 9) {
+    return mapped_sensor_pin_read;
+   } else {
+    return mapped_sensor_pin_read + 1;
+   }
 }
 
 void moist_sensore_setup() {
-  // initialize for printing.
   Serial.begin(9600);
-  Serial.print("I am moister than moist");
 }

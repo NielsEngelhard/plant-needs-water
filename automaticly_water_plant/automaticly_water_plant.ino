@@ -1,29 +1,41 @@
 /*
  * Created by : Niels Engelhard
  * Github page: https://github.com/NielsEngelhard
- * 
- * STILL WORK IN PROGRESS
- * 
- * Last edited: 01-12-2020
+ *
+ * Last edit: 02-12-2020
  *
  */
 
 /* BEGIN import setups from other "files" (linking) */
 void moist_sensore_setup();
 void water_pump_setup();
-void turnPumpOnAndOff();
+void LEDSetup();
+void buttonSetup();
+void displaySetup();
 
-void printMoistureValue();
+void waterPlantWhenNeeded();
+void giveWaterIfButtonPressed();
 /* END   import setups from other "files" (linking) */
 
 
+/*
+ * Contains all the setup's of all other .ino files.
+ */
 void setup() {
   moist_sensore_setup();
   water_pump_setup();
+  LEDSetup();
+  buttonSetup();
+  displaySetup();
 }
 
-// the loop function runs over and over again forever
+
+/*
+ * The - two - running processes. The application has two things it can do. 
+ * 1. Water the plant automatically based on the sensor's read -> waterPlantWhenNeeded().
+ * 2. Water the plant manually based on a button click -> giveWaterIfButtonPressed().
+ */
 void loop() {
-  printMoistureValue();
-  delay(3000);
+  waterPlantWhenNeeded();
+  giveWaterIfButtonPressed();
 }
