@@ -7,7 +7,6 @@
  */
 
 /* BEGIN import setups from other "files" (linking) */
-void moist_sensore_setup();
 void water_pump_setup();
 void LEDSetup();
 void buttonSetup();
@@ -27,6 +26,9 @@ void setup() {
   LEDSetup();
   buttonSetup();
   displaySetup();
+
+  // enable for developing (turn on console prints)
+  // Serial.begin(9600);
 }
 
 

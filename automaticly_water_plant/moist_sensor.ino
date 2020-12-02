@@ -25,7 +25,3 @@ int getMoistSensorValue() {
     return mapped_sensor_pin_read + 1;
    }
 }
-
-void moist_sensore_setup() {
-  Serial.begin(9600);
-}

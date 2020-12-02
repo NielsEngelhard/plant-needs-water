@@ -15,7 +15,6 @@ void LEDGreenColor();
 
 void giveWaterIfButtonPressed() {
   if (buttonPressed() == HIGH) { // button is pressed
-    Serial.println("still in if :( ");
     LEDBlueColor();
     pumpWater(pumpTime);
     LEDGreenColor();
